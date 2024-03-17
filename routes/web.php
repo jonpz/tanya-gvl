@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\PageContentController;
+use App\Http\Controllers\PageHomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', IndexController::class)->name('index');
+Route::get('/', PageHomeController::class)->name('home');
+Route::get('/{slug}', [PageContentController::class, 'show'])->name('page.content.show');
