@@ -11,15 +11,26 @@ interface Props {
 }
 
 defineProps<Props>();
+
+const BlockCommonTitle = defineAsyncComponent(
+    () => import("@Block/Common/Title.vue"),
+);
 </script>
 
 <template>
     <Head :item="item"></Head>
+
     <div
-        class="bg-gray-200 w-full h-screen flex flex-col justify-center items-center"
+        v-if="
+            item?.blocks && Array.isArray(item.blocks) && item.blocks.length > 0
+        "
+        class="mx-auto w-full max-w-6xl"
     >
-        <h1 class="text-center text-4xl font-semibold text-gray-900">
-            {{ item.title }}
-        </h1>
+        <div v-for="(block, index) in item.blocks" :key="index">
+            <BlockCommonTitle
+                v-if="block.type == 'common-title'"
+                :block="block"
+            ></BlockCommonTitle>
+        </div>
     </div>
 </template>

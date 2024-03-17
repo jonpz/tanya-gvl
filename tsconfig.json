@@ -40,6 +40,9 @@
             "@/*": [
                 "resources/*"
             ],
+            "@Block/*": [
+                "resources/views/Components/Theme/Blocks/*"
+            ],
             "@Composable/*": [
                 "resources/js/Composables/*"
             ],

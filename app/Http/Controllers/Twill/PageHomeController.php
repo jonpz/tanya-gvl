@@ -44,6 +44,10 @@ class PageHomeController extends BaseModuleController
         $form->add(
             BlockEditor::make()
                 ->withoutSeparator()
+                ->blocks([
+                    'common-title',
+                    'image',
+                ])
         );
 
         return $form;
@@ -76,13 +80,15 @@ class PageHomeController extends BaseModuleController
         return $form;
     }
 
+    /**
+     * @param  Model  $item
+     * @return array
+     */
     protected function previewData($item)
     {
-        return $this->previewForInertia($item->only([
-            'title',
-            'meta_title',
-            'meta_description',
-        ]), [
+        $item->computeBlocks();
+
+        return $this->previewForInertia($item->only($item->publicAttributes), [
             'page' => 'Page/Home',
         ]);
     }

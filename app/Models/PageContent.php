@@ -10,7 +10,7 @@ use A17\Twill\Models\Behaviors\HasRevisions;
 use A17\Twill\Models\Behaviors\HasSlug;
 use A17\Twill\Models\Behaviors\HasTranslation;
 use A17\Twill\Models\Behaviors\Sortable;
-use A17\Twill\Models\Model;
+use App\Models\Base\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class PageContent extends Model implements Sortable
@@ -33,5 +33,12 @@ class PageContent extends Model implements Sortable
 
     public $slugAttributes = [
         'title',
+    ];
+
+    public array $publicAttributes = [
+        'title',
+        'meta_title',
+        'meta_description',
+        'blocks',
     ];
 }

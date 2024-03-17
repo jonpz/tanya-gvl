@@ -11,6 +11,7 @@ use A17\Twill\Services\Forms\Form;
 use A17\Twill\Services\Listings\Columns\Text;
 use A17\Twill\Services\Listings\TableColumns;
 use App\Http\Controllers\Twill\Base\ModuleController as BaseModuleController;
+use App\Models\Base\Model;
 
 class PageContentController extends BaseModuleController
 {
@@ -85,13 +86,15 @@ class PageContentController extends BaseModuleController
         return $form;
     }
 
+    /**
+     * @param  Model  $item
+     * @return array
+     */
     protected function previewData($item)
     {
-        return $this->previewForInertia($item->only([
-            'title',
-            'meta_title',
-            'meta_description',
-        ]), [
+        $item->computeBlocks();
+
+        return $this->previewForInertia($item->only($item->publicAttributes), [
             'page' => 'Page/Content',
         ]);
     }

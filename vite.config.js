@@ -7,6 +7,10 @@ export default defineConfig({
     resolve: {
         alias: [
             {
+                find: '@Block',
+                replacement: '/resources/views/Components/Theme/Block',
+            },
+            {
                 find: "@Composable",
                 replacement: "/resources/js/Composables",
             },

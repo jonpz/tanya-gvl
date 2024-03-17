@@ -21,6 +21,7 @@ class PageHomeController extends Controller
 
                 if ($item !== null) {
                     $item->load('translations', 'blocks');
+                    $item->computeBlocks();
                 }
 
                 return $item;
@@ -30,11 +31,7 @@ class PageHomeController extends Controller
         abort_if($item === null, Response::HTTP_NOT_FOUND);
 
         return Inertia::render('Page/Home', [
-            'item' => $item->only([
-                'title',
-                'meta_title',
-                'meta_description',
-            ]),
+            'item' => $item->only($item->publicAttributes),
             'locale' => $locale,
         ]);
     }

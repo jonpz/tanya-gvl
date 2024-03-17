@@ -6,7 +6,7 @@ use A17\Twill\Models\Behaviors\HasBlocks;
 use A17\Twill\Models\Behaviors\HasMedias;
 use A17\Twill\Models\Behaviors\HasRevisions;
 use A17\Twill\Models\Behaviors\HasTranslation;
-use A17\Twill\Models\Model;
+use App\Models\Base\Model;
 
 class PageHome extends Model
 {
@@ -22,5 +22,12 @@ class PageHome extends Model
         'title',
         'meta_title',
         'meta_description',
+    ];
+
+    public array $publicAttributes = [
+        'title',
+        'meta_title',
+        'meta_description',
+        'blocks',
     ];
 }
