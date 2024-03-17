@@ -41,7 +41,7 @@
                 "resources/*"
             ],
             "@Block/*": [
-                "resources/views/Components/Theme/Blocks/*"
+                "resources/views/Components/Theme/Block/*"
             ],
             "@Composable/*": [
                 "resources/js/Composables/*"
