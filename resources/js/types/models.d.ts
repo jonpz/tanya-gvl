@@ -4,6 +4,7 @@ declare namespace Model {
         meta_title?: string
         meta_description?: string
         blocks?: Array<Block> | null
+        medias: {} | null
     }
 
     export type Block = {
@@ -11,5 +12,21 @@ declare namespace Model {
         position: number
         type: string
         content: {} | null
+    }
+
+    export type Media = {
+        alt?: string
+        caption?: string
+        height: number
+        src?: string
+        video?: string
+        width: number
+    }
+
+    export type MediaWithRoles = {
+        default?: Media
+        desktop?: Media
+        mobile?: Media
+        tablet?: Media
     }
 }

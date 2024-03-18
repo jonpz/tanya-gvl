@@ -22,4 +22,34 @@ class BlockComponent extends TwillBlockComponent
     {
         return '';
     }
+
+    public static function fieldWysiwygTypeDefault(): string
+    {
+        return 'quill';
+    }
+
+    public static function fieldWysiwygToolbarOptionsDefault(): array
+    {
+        return [
+            ['header' => [2, 3, 4, false]],
+            'bold',
+            'italic',
+            'underline',
+            'strike',
+            ['list' => 'bullet'],
+            ['list' => 'ordered'],
+            'link',
+            'clean',
+            // ['color' => ["#747E8C", "#54D52B", "#3BA618", "#00B2D2", "#FBC000"]],
+        ];
+    }
+
+    public static function fieldWysiwygToolbarOptionsLight(): array
+    {
+        return [
+            'bold',
+            'italic',
+            'clean',
+        ];
+    }
 }

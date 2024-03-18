@@ -12,6 +12,27 @@ interface Props {
 
 defineProps<Props>()
 
+const BlockCommonButton = defineAsyncComponent(
+    () => import("@Block/Common/Button.vue"),
+)
+const BlockCommonImage = defineAsyncComponent(
+    () => import("@Block/Common/Image.vue"),
+)
+const BlockCommonImageUnconstrained = defineAsyncComponent(
+    () => import("@Block/Common/ImageUnconstrained.vue"),
+)
+const BlockCommonParagraph = defineAsyncComponent(
+    () => import("@Block/Common/Paragraph.vue"),
+)
+const BlockCommonPricingTable = defineAsyncComponent(
+    () => import("@Block/Common/PricingTable.vue"),
+)
+const BlockCommonSeparator = defineAsyncComponent(
+    () => import("@Block/Common/Separator.vue"),
+)
+const BlockCommonText = defineAsyncComponent(
+    () => import("@Block/Common/Text.vue"),
+)
 const BlockCommonTitle = defineAsyncComponent(
     () => import("@Block/Common/Title.vue"),
 )
@@ -24,6 +45,15 @@ const BlockCommonTitle = defineAsyncComponent(
     <div v-if="item?.blocks && Array.isArray(item.blocks) && item.blocks.length > 0
         " class="mx-auto w-full max-w-6xl">
         <div v-for="(block, index) in item.blocks" :key="index">
+            <BlockCommonButton v-if="block.type == 'common-button'" :block="block"></BlockCommonButton>
+            <BlockCommonImage v-if="block.type == 'common-image'" :block="block"></BlockCommonImage>
+            <BlockCommonImageUnconstrained v-if="block.type == 'common-imageunconstrained'" :block="block">
+            </BlockCommonImageUnconstrained>
+            <BlockCommonParagraph v-if="block.type == 'common-paragraph'" :block="block"></BlockCommonParagraph>
+            <BlockCommonPricingTable v-if="block.type == 'common-pricingtable'" :block="block">
+            </BlockCommonPricingTable>
+            <BlockCommonSeparator v-if="block.type == 'common-separator'"></BlockCommonSeparator>
+            <BlockCommonText v-if="block.type == 'common-text'" :block="block"></BlockCommonText>
             <BlockCommonTitle v-if="block.type == 'common-title'" :block="block"></BlockCommonTitle>
         </div>
     </div>
