@@ -28,6 +28,7 @@ class PageContentController extends BaseModuleController
     {
         $this->enableReorder();
         $this->setPermalinkBase('');
+        $this->withoutLanguageInPermalink();
     }
 
     /**
