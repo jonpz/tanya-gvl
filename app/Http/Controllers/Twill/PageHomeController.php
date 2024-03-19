@@ -46,7 +46,12 @@ class PageHomeController extends BaseModuleController
                 ->withoutSeparator()
                 ->blocks([
                     'common-title',
-                    'image',
+                    'common-image',
+                    'common-text',
+                    'common-separator',
+                    'common-imageunconstrained',
+                    'common-paragraph',
+                    'common-pricingtable',
                 ])
         );
 

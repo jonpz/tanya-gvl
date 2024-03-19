@@ -41,6 +41,15 @@ class PageContentController extends BaseModuleController
 
         $form->add(
             BlockEditor::make()->withoutSeparator()
+                ->blocks([
+                    'common-title',
+                    'common-image',
+                    'common-text',
+                    'common-separator',
+                    'common-imageunconstrained',
+                    'common-paragraph',
+                    'common-pricingtable',
+                ])
         );
 
         return $form;
