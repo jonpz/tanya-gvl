@@ -10,7 +10,7 @@ class Title extends Base
 {
     public function render(): View
     {
-        return view();
+        return view('site/blocks/title');
     }
 
     public function getForm(): Form

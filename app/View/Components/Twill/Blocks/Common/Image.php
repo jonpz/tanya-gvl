@@ -4,9 +4,15 @@ namespace App\View\Components\Twill\Blocks\Common;
 
 use A17\Twill\Services\Forms\Fields\Medias;
 use A17\Twill\Services\Forms\Form;
+use Illuminate\Contracts\View\View;
 
 class Image extends Base
 {
+    public function render(): View
+    {
+        return view('site/blocks/image');
+    }
+
     public function getForm(): Form
     {
         return Form::make([
