@@ -5,6 +5,7 @@ namespace App\Providers;
 use A17\Twill\Facades\TwillNavigation;
 use A17\Twill\View\Components\Navigation\NavigationLink;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,17 +24,14 @@ class AppServiceProvider extends ServiceProvider
     {
         TwillNavigation::addLink(
             NavigationLink::make()
-                ->title('Content')
-                ->forModule('pageContents')
+                ->title(Str::ucfirst(__('content')))
+                ->forModule('pages')
                 ->doNotAddSelfAsFirstChild()
                 ->setChildren([
                     NavigationLink::make()
-                        ->title('Home')
-                        ->forSingleton('pageHome'),
-                    NavigationLink::make()
-                        ->title('Pages')
-                        ->forModule('pageContents'),
-                ]),
+                        ->title(Str::ucfirst(__('pages')))
+                        ->forModule('pages'),
+                ])
         );
     }
 }
