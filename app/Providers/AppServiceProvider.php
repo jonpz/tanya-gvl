@@ -29,8 +29,22 @@ class AppServiceProvider extends ServiceProvider
                 ->doNotAddSelfAsFirstChild()
                 ->setChildren([
                     NavigationLink::make()
+                        ->title(Str::ucfirst(__('home')))
+                        ->forSingleton('home'),
+                    NavigationLink::make()
                         ->title(Str::ucfirst(__('pages')))
                         ->forModule('pages'),
+                ])
+        );
+        TwillNavigation::addLink(
+            NavigationLink::make()
+                ->title(Str::ucfirst(__('navigation')))
+                ->forModule('menuItems')
+                ->doNotAddSelfAsFirstChild()
+                ->setChildren([
+                    NavigationLink::make()
+                        ->title(Str::ucfirst(__('menu')))
+                        ->forModule('menuItems'),
                 ])
         );
     }

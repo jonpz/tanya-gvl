@@ -4,18 +4,17 @@ namespace App\Repositories;
 
 use A17\Twill\Repositories\Behaviors\HandleBlocks;
 use A17\Twill\Repositories\Behaviors\HandleMedias;
-use A17\Twill\Repositories\Behaviors\HandleNesting;
 use A17\Twill\Repositories\Behaviors\HandleRevisions;
 use A17\Twill\Repositories\Behaviors\HandleSlugs;
 use A17\Twill\Repositories\Behaviors\HandleTranslations;
 use A17\Twill\Repositories\ModuleRepository;
-use App\Models\Page;
+use App\Models\Home;
 
-class PageRepository extends ModuleRepository
+class HomeRepository extends ModuleRepository
 {
-    use HandleBlocks, HandleMedias, HandleNesting, HandleRevisions, HandleSlugs, HandleTranslations;
+    use HandleBlocks, HandleMedias, HandleRevisions, HandleSlugs, HandleTranslations;
 
-    public function __construct(Page $model)
+    public function __construct(Home $model)
     {
         $this->model = $model;
     }
