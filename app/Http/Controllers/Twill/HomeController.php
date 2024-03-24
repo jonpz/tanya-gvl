@@ -28,6 +28,7 @@ class HomeController extends BaseModuleController
     {
         return [
             'customPermalink' => route('home'),
+            'slug' => '',
         ];
     }
 

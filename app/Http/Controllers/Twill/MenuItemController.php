@@ -6,6 +6,7 @@ use A17\Twill\Http\Controllers\Admin\NestedModuleController as BaseModuleControl
 use A17\Twill\Models\Contracts\TwillModelContract;
 use A17\Twill\Services\Forms\Fields\Browser;
 use A17\Twill\Services\Forms\Form;
+use App\Models\Home;
 use App\Models\Page;
 
 class MenuItemController extends BaseModuleController
@@ -32,7 +33,10 @@ class MenuItemController extends BaseModuleController
     public function getForm(TwillModelContract $model): Form
     {
         $form = parent::getForm($model);
-        $form->add(Browser::make()->name('page')->modules([Page::class]));
+        $form->add(Browser::make()->name('page')->modules([
+            Page::class,
+            Home::class,
+        ]));
 
         return $form;
     }

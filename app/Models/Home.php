@@ -23,7 +23,8 @@ class Home extends Model
         'title',
     ];
 
-    public $slugAttributes = [
-        'title',
-    ];
+    public function getSlug(?string $locale = null): string
+    {
+        return '';
+    }
 }

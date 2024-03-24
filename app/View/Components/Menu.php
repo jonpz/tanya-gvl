@@ -23,7 +23,7 @@ class Menu extends Component
     public function render(): View|Closure|string
     {
         /** @var MenuItem[] $links */
-        $links = MenuItem::published()->get()->toTree();
+        $links = MenuItem::published()->ordered()->get()->toTree();
 
         return view('components.menu', ['links' => $links]);
     }
