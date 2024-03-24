@@ -1,22 +1,23 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<x-html :title="$item->meta_title || $item->title
+    ? ($item->meta_title ?? $item->title) . ' - ' . config('app.name')
+    : config('app.name')" class="flex flex-col min-h-screen bg-gray-950">
+    <x-slot name="head">
+        <meta name="description" content="{{ $item->meta_description }}">
+        @livewireStyles
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    </x-slot>
 
-<head>
-    <title>
-        {{ $item->meta_title || $item->title ? ($item->meta_title ?? $item->title) . ' | ' . config('app.name') : config('app.name') }}
-    </title>
-    <meta name="description" content="{{ $item->meta_description }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @livewireStyles
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-
-<body>
-    <x-menu />
-    <div class="max-w-2xl mx-auto">
+    <!-- Header -->
+    <x-layout-header />
+    <!-- Content Section -->
+    <div class="container min-h-screen pt-32 pb-16 mx-auto text-gray-200 bg-gray-900">
         {!! $item->renderBlocks() !!}
     </div>
+    <!-- Footer -->
+    <footer class="fixed bottom-0 w-full py-4 text-gray-200 bg-black">
+        <div class="container mx-auto text-center">
+            <p class="text-sm">&copy; 2024 {{ config('app.name') }}. All rights reserved.</p>
+        </div>
+    </footer>
     @livewireScripts
-</body>
-
-</html>
+</x-html>

@@ -11,7 +11,7 @@ class MenuItemRepository extends ModuleRepository
 {
     use HandleNesting, HandleTranslations;
 
-    protected $relatedBrowsers = ['page'];
+    protected $relatedBrowsers = ['page', 'home'];
 
     public function __construct(MenuItem $model)
     {
