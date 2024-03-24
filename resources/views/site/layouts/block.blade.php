@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <div class="mx-auto max-w-2xl">
+    <div>
         @yield('content')
     </div>
 </body>
