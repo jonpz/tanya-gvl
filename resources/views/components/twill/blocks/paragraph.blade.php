@@ -1,3 +1,3 @@
-<div class="py-4 md:py-8 px-4 md:px-0 mx-auto max-w-2xl flex items-center">
+<div class="flex items-center max-w-2xl px-4 py-4 mx-auto text-base md:py-8 md:px-0 md:text-lg">
     {!! $block->translatedInput('text') !!}
 </div>
