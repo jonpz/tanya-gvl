@@ -1,5 +1,5 @@
 <div @class([
-    'container w-full mx-auto',
+    'container w-full mx-auto first:pt-8 first:md:pt-12 last:pb-8',
     'text-twhite bg-tgray' => $renderData->model->page_theme !== 'light',
     'text-tgray bg-twhite' => $renderData->model->page_theme === 'light',
 ])>
