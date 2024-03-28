@@ -6,8 +6,11 @@ use A17\Twill\Http\Controllers\Admin\NestedModuleController as BaseModuleControl
 use A17\Twill\Models\Contracts\TwillModelContract;
 use A17\Twill\Services\Forms\Fields\BlockEditor;
 use A17\Twill\Services\Forms\Fields\Input;
+use A17\Twill\Services\Forms\Fields\Radios;
 use A17\Twill\Services\Forms\Fieldset;
 use A17\Twill\Services\Forms\Form;
+use A17\Twill\Services\Forms\Option;
+use A17\Twill\Services\Forms\Options;
 
 class PageController extends BaseModuleController
 {
@@ -26,7 +29,17 @@ class PageController extends BaseModuleController
     public function getForm(TwillModelContract $model): Form
     {
         $form = parent::getForm($model);
-
+        // $form->add(Radios::make()
+        //     ->name('page_theme')
+        //     ->inline()
+        //     ->border()
+        //     ->default('dark')
+        //     ->options(
+        //         Options::make([
+        //             Option::make('light', 'Light Mode'),
+        //             Option::make('dark', 'Dark Mode'),
+        //         ])
+        //     ));
         $form->add(BlockEditor::make()->withoutSeparator());
 
         return $form;
@@ -53,6 +66,25 @@ class PageController extends BaseModuleController
                         ->translatable()
                         ->type('textarea')
                         ->maxLength(200),
+                ])
+        );
+
+        $form->addFieldset(
+            Fieldset::make()
+                ->title('Page Settings')
+                ->id('page_settings')
+                ->fields([
+                    Radios::make()
+                        ->name('page_theme')
+                        ->inline()
+                        ->border()
+                        ->default('dark')
+                        ->options(
+                            Options::make([
+                                Option::make('light', 'Light Mode'),
+                                Option::make('dark', 'Dark Mode'),
+                            ])
+                        ),
                 ])
         );
 

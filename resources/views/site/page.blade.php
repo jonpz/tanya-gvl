@@ -10,7 +10,7 @@
     <!-- Header -->
     <x-layout-header />
     <!-- Content Section -->
-    <div class="container min-h-screen pt-32 pb-16 mx-auto text-twhite bg-tgray">
+    <div class="w-full min-h-screen pt-24 pb-12">
         {!! $item->renderBlocks() !!}
     </div>
     <!-- Footer -->
