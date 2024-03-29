@@ -6,8 +6,11 @@ use A17\Twill\Http\Controllers\Admin\SingletonModuleController as BaseModuleCont
 use A17\Twill\Models\Contracts\TwillModelContract;
 use A17\Twill\Services\Forms\Fields\BlockEditor;
 use A17\Twill\Services\Forms\Fields\Input;
+use A17\Twill\Services\Forms\Fields\Radios;
 use A17\Twill\Services\Forms\Fieldset;
 use A17\Twill\Services\Forms\Form;
+use A17\Twill\Services\Forms\Option;
+use A17\Twill\Services\Forms\Options;
 
 class HomeController extends BaseModuleController
 {
@@ -66,6 +69,37 @@ class HomeController extends BaseModuleController
                         ->translatable()
                         ->type('textarea')
                         ->maxLength(200),
+                ])
+        );
+
+        $form->addFieldset(
+            Fieldset::make()
+                ->title('Page Settings')
+                ->id('page_settings')
+                ->fields([
+                    Radios::make()
+                        ->name('page_theme')
+                        ->inline()
+                        ->border()
+                        ->default('dark')
+                        ->options(
+                            Options::make([
+                                Option::make('light', 'Light Mode'),
+                                Option::make('dark', 'Dark Mode'),
+                            ])
+                        ),
+                    Radios::make()
+                        ->name('content_width')
+                        ->inline()
+                        ->border()
+                        ->default('medium')
+                        ->options(
+                            Options::make([
+                                Option::make('wide', 'Wide'),
+                                Option::make('medium', 'Medium'),
+                                Option::make('thin', 'Thin'),
+                            ])
+                        ),
                 ])
         );
 

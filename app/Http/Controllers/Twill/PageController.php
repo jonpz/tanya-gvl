@@ -29,17 +29,6 @@ class PageController extends BaseModuleController
     public function getForm(TwillModelContract $model): Form
     {
         $form = parent::getForm($model);
-        // $form->add(Radios::make()
-        //     ->name('page_theme')
-        //     ->inline()
-        //     ->border()
-        //     ->default('dark')
-        //     ->options(
-        //         Options::make([
-        //             Option::make('light', 'Light Mode'),
-        //             Option::make('dark', 'Dark Mode'),
-        //         ])
-        //     ));
         $form->add(BlockEditor::make()->withoutSeparator());
 
         return $form;
@@ -83,6 +72,18 @@ class PageController extends BaseModuleController
                             Options::make([
                                 Option::make('light', 'Light Mode'),
                                 Option::make('dark', 'Dark Mode'),
+                            ])
+                        ),
+                    Radios::make()
+                        ->name('content_width')
+                        ->inline()
+                        ->border()
+                        ->default('medium')
+                        ->options(
+                            Options::make([
+                                Option::make('wide', 'Wide'),
+                                Option::make('medium', 'Medium'),
+                                Option::make('thin', 'Thin'),
                             ])
                         ),
                 ])

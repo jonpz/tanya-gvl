@@ -24,6 +24,7 @@ class Page extends Model implements Sortable
         'meta_description',
         'position',
         'page_theme',
+        'content_width',
     ];
 
     public $translatedAttributes = [

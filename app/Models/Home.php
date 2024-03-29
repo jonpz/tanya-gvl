@@ -17,6 +17,8 @@ class Home extends Model
     protected $fillable = [
         'published',
         'title',
+        'page_theme',
+        'content_width',
     ];
 
     public $translatedAttributes = [

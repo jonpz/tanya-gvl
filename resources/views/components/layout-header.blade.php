@@ -1,5 +1,5 @@
 <header x-data="{ open: false }">
-    <div class="fixed inset-x-0 z-20 text-twhite bg-tblack">
+    <div class="fixed inset-x-0 z-30 text-twhite bg-tblack">
         <div class="container mx-auto">
             <div class="flex items-center justify-between h-24">
                 <div class="ml-4">
@@ -32,7 +32,7 @@
         </div>
     </div>
     <!-- Mobile Navigation (Hidden by default) -->
-    <nav x-show="open" class="absolute inset-x-0 z-10 mt-24 text-twhite bg-tblack hover:text-gray-50 md:hidden"
+    <nav x-show="open" class="fixed inset-x-0 z-20 mt-24 text-twhite bg-tblack hover:text-gray-50 md:hidden"
         x-transition:enter="transition ease-out duration-400 transform"
         x-transition:enter-start="opacity-85 -translate-y-40" x-transition:enter-end="opacity-100 translate-y-0"
         x-transition:leave="transition ease-in duration-250 transform"
