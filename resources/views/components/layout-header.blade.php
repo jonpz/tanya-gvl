@@ -1,5 +1,5 @@
 <header x-data="{ open: false }">
-    <div class="fixed inset-x-0 z-30 text-twhite bg-tblack">
+    <div class="fixed inset-x-0 z-30 bg-tblack text-twhite">
         <div class="container mx-auto">
             <div class="flex items-center justify-between h-24">
                 <div class="ml-4">
