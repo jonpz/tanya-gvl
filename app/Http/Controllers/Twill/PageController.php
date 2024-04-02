@@ -29,35 +29,6 @@ class PageController extends BaseModuleController
     public function getForm(TwillModelContract $model): Form
     {
         $form = parent::getForm($model);
-        $form->add(BlockEditor::make()->withoutSeparator());
-
-        return $form;
-    }
-
-    public function getSideFieldsets(TwillModelContract $model): Form
-    {
-        $form = parent::getSideFieldsets($model);
-
-        $form->addFieldset(
-            Fieldset::make()
-                ->title('SEO')
-                ->id('seo')
-                ->fields([
-                    Input::make()
-                        ->name('meta_title')
-                        ->label('Title')
-                        ->translatable()
-                        ->maxLength(100),
-
-                    Input::make()
-                        ->name('meta_description')
-                        ->label('Description')
-                        ->translatable()
-                        ->type('textarea')
-                        ->maxLength(200),
-                ])
-        );
-
         $form->addFieldset(
             Fieldset::make()
                 ->title('Page Settings')
@@ -86,6 +57,38 @@ class PageController extends BaseModuleController
                                 Option::make('thin', 'Thin'),
                             ])
                         ),
+                ])
+        );
+        $form->add(BlockEditor::make()
+            ->withoutSeparator()
+            ->blocks([
+                'app-panel',
+            ])
+        );
+
+        return $form;
+    }
+
+    public function getSideFieldsets(TwillModelContract $model): Form
+    {
+        $form = parent::getSideFieldsets($model);
+        $form->addFieldset(
+            Fieldset::make()
+                ->title('SEO')
+                ->id('seo')
+                ->fields([
+                    Input::make()
+                        ->name('meta_title')
+                        ->label('Title')
+                        ->translatable()
+                        ->maxLength(100),
+
+                    Input::make()
+                        ->name('meta_description')
+                        ->label('Description')
+                        ->translatable()
+                        ->type('textarea')
+                        ->maxLength(200),
                 ])
         );
 

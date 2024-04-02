@@ -1,8 +1,8 @@
 <x-html :title="$item->meta_title || $item->title
     ? ($item->meta_title ?? $item->title) . ' - ' . config('app.name')
     : config('app.name')" @class([
-        'flex flex-col min-h-screen bg-tgray relative',
-        // 'bg-black' => $item->page_theme !== 'light',
+        'flex flex-col min-h-screen relative bg-tgray',
+        // 'bg-tblack' => $item->page_theme !== 'light',
         // 'bg-tgray' => $item->page_theme === 'light',
     ])>
     <x-slot name="head">
@@ -13,7 +13,7 @@
     </x-slot>
 
     <!-- Header -->
-    <x-layout-header />
+    <x-layout.header />
 
     <div class="absolute inset-0 z-0">
         <div @class([
@@ -31,7 +31,7 @@
     <!-- Footer -->
     <footer class="fixed bottom-0 z-30 w-full py-4 bg-tblack text-twhite">
         <div class="container mx-auto text-center">
-            <p class="text-sm">&copy; 2024 {{ config('app.name') }}. All rights reserved.</p>
+            <p class="text-sm">&copy; {!! date('Y') !!} {{ config('app.name') }}. All rights reserved.</p>
         </div>
     </footer>
     @livewireScripts

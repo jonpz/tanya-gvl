@@ -1,13 +1,13 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Layout;
 
 use App\Models\MenuItem;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class LayoutHeader extends Component
+class Header extends Component
 {
     /**
      * Create a new component instance.
@@ -30,6 +30,6 @@ class LayoutHeader extends Component
             return $item;
         })->toTree();
 
-        return view('components.layout-header', ['links' => $links]);
+        return view('components.layout.header', ['links' => $links]);
     }
 }
