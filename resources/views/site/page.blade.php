@@ -24,14 +24,16 @@
     </div>
 
     <!-- Content Section -->
-    <div class="z-10 pt-24 pb-12">
+    <div class="relative z-10 pt-24 pb-12">
         {!! $item->renderBlocks() !!}
     </div>
 
+    <div class="hidden bg-tbeige bg-tpurple text-tbeige text-tpurple"></div>
+
     <!-- Footer -->
-    <footer class="fixed bottom-0 z-30 w-full py-4 bg-tblack text-twhite">
+    <footer class="fixed bottom-0 z-30 w-full py-3 bg-tblack text-twhite">
         <div class="container mx-auto text-center">
-            <p class="text-sm">&copy; {!! date('Y') !!} {{ config('app.name') }}. All rights reserved.</p>
+            <span class="text-sm">&copy; {!! date('Y') !!} {{ config('app.name') }}. All rights reserved.</span>
         </div>
     </footer>
     @livewireScripts

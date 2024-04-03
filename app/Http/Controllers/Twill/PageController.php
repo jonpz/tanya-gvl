@@ -59,11 +59,17 @@ class PageController extends BaseModuleController
                         ),
                 ])
         );
-        $form->add(BlockEditor::make()
-            ->withoutSeparator()
-            ->blocks([
-                'app-panel',
-            ])
+        $form->addFieldset(
+            Fieldset::make()
+                ->title('Content')
+                ->id('content')
+                ->fields([
+                    BlockEditor::make()
+                        ->withoutSeparator()
+                        ->blocks([
+                            'app-panel',
+                        ]),
+                ])
         );
 
         return $form;

@@ -1,7 +1,30 @@
 <div @class([
-    'container w-full mx-auto last:mb-20',
-    'text-twhite' => $renderData->model?->page_theme === 'dark',
-    'text-tgray' => $inEditor || $renderData->model?->page_theme === 'light',
+    'container mx-auto',
+    'text-twhite' =>
+        ($renderData->model?->page_theme === 'dark' &&
+            !in_array($block->input('background_color'), [
+                'twhite',
+                'tbeige',
+            ])) ||
+        in_array($block->input('background_color'), [
+            'tblack',
+            'tgray',
+            'tpurple',
+        ]),
+    'text-tgray' =>
+        ($inEditor &&
+            !in_array($block->input('background_color'), [
+                'tblack',
+                'tgray',
+                'tpurple',
+            ])) ||
+        $renderData->model?->page_theme === 'light' ||
+        in_array($block->input('background_color'), ['twhite', 'tbeige']),
+    'p-4 md:p-8' => $block->input('padding') === 'thin',
+    'p-8 md:p-16' => $block->input('padding') === 'medium',
+    'p-16 md:p-32' => $block->input('padding') === 'wide',
+    'bg-' . $block->input('background_color') =>
+        $block->input('background_color') !== 'none',
 ])>
     <div @class([
         'mx-auto',
