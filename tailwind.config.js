@@ -7,7 +7,7 @@ export default {
         extend: {
             colors: {
                 twhite: '#eeebea',
-                tblack: '#080008',
+                tblack: '#000000',
                 tgray: '#1b1c26',
                 tpurple: '#8d6472',
                 tbeige: '#d6c3ba',
@@ -15,7 +15,7 @@ export default {
             fontFamily: {
                 poppins: ['Poppins', 'sans-serif'],
                 nightingale: ['DT Nightingale', 'serif'],
-            }
+            },
         },
     },
     plugins: [],
