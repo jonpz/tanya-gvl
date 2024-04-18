@@ -16,9 +16,6 @@ class HomeController extends BaseModuleController
 {
     protected $moduleName = 'homes';
 
-    /**
-     * This method can be used to enable/disable defaults. See setUpController in the docs for available options.
-     */
     protected function setUpController(): void
     {
         $this->disablePermalink();
@@ -27,7 +24,7 @@ class HomeController extends BaseModuleController
         $this->disablePublish();
     }
 
-    protected function formData($request)
+    protected function formData($request): array
     {
         return [
             'customPermalink' => route('home'),
@@ -35,15 +32,13 @@ class HomeController extends BaseModuleController
         ];
     }
 
-    /**
-     * See the table builder docs for more information. If you remove this method you can use the blade files.
-     * When using twill:module:make you can specify --bladeForm to use a blade form instead.
-     */
     public function getForm(TwillModelContract $model): Form
     {
         $form = parent::getForm($model);
 
-        $form->add(BlockEditor::make()->withoutSeparator());
+        $form->add(BlockEditor::make()->withoutSeparator()->blocks([
+            'app-panel',
+        ]));
 
         return $form;
     }

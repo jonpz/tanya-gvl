@@ -16,9 +16,9 @@ class PageController extends BaseModuleController
 {
     protected $moduleName = 'pages';
 
-    protected $showOnlyParentItemsInBrowsers = true;
+    // protected $showOnlyParentItemsInBrowsers = true;
 
-    protected $nestedItemsDepth = 1;
+    // protected $nestedItemsDepth = 1;
 
     protected function setUpController(): void
     {

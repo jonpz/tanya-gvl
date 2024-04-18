@@ -27,7 +27,7 @@
     <div class="relative z-10 flex-grow mt-24 mb-12">
         {!! $item->renderBlocks() !!}
 
-        <div class="hidden bg-tbeige bg-tpurple text-tbeige text-tpurple"></div>
+        <div class="hidden text-right bg-tbeige bg-tpurple text-tbeige text-tpurple"></div>
     </div>
 
     <!-- Footer -->

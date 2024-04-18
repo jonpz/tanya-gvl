@@ -9,6 +9,26 @@
     h1, h2, h3, h4, h5, h6 {
         @apply font-nightingale;
     }
+    h1 {
+        @apply text-4xl md:text-6xl;
+        @apply font-semibold;
+    }
+    h2 {
+        @apply text-3xl md:text-5xl;
+        @apply font-semibold;
+    }
+    h3 {
+        @apply text-2xl md:text-4xl;
+        @apply font-semibold;
+    }
+    h4 {
+        @apply text-xl md:text-3xl;
+        @apply font-bold;
+    }
+    h5 {
+        @apply text-lg md:text-2xl;
+        @apply font-bold;
+    }
     .pzpanel p:not(:last-child) {
         @apply mb-6;
     }
