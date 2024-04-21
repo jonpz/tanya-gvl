@@ -9,17 +9,18 @@
         <meta name="description" content="{{ $item->meta_description }}">
         <link rel="shortcut icon" href="{{ url('assets/img/favicon.png') }}">
         @livewireStyles
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @vite(['resources/css/app.css'])
     </x-slot>
 
     <!-- Header -->
     <x-layout.header />
 
+    <!-- Page backdrop -->
     <div class="absolute inset-0 z-0">
         <div @class([
             'container mx-auto h-full',
-            'text-twhite bg-tgray' => $item->page_theme !== 'light',
-            'text-tgray bg-twhite' => $item->page_theme === 'light',
+            'bg-tgray' => $item->page_theme === 'dark',
+            'bg-twhite' => $item->page_theme === 'light',
         ])></div>
     </div>
 
@@ -36,6 +37,7 @@
                 reserved.</span>
         </div>
     </footer>
+
     @livewireScripts
 
 </x-html>

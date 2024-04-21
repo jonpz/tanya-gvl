@@ -28,6 +28,18 @@ return [
                     ],
                 ],
             ],
+            'free_image' => [
+                'display' => [
+                    [
+                        'name' => 'display',
+                    ],
+                ],
+                'full' => [
+                    [
+                        'name' => 'full',
+                    ],
+                ],
+            ],
         ],
     ],
 ];
