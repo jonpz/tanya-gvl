@@ -1,4 +1,5 @@
 <div @class([
+    'relative',
     'mt-2 md:mt-4' => $block->input('margin_top') === 'thin',
     'mt-4 md:mt-8' => $block->input('margin_top') === 'medium',
     'mt-8 md:mt-16' => $block->input('margin_top') === 'wide',
@@ -22,7 +23,7 @@
     </div>
 
     @if ($block->imageAsArray('image', 'desktop')['caption'])
-        <div class="px-4 py-2 text-xs border border-t-0 bg-zinc-300 border-tgray lg:text-sm">
+        <div class="absolute inset-x-0 bottom-0 px-4 py-3 text-xs text-twhite bg-tblack/50 md:text-sm">
             {{ $block->imageAsArray('image', 'desktop')['caption'] }}
         </div>
     @endif

@@ -8,5 +8,6 @@
 ])>
     <hr @class([
         'mx-auto border-' . $block->input('color') . ' w-' . $block->input('width'),
+        'h-12' => $inEditor,
     ]) />
 </div>

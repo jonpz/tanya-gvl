@@ -53,6 +53,18 @@ class Panel extends TwillBlockComponent
                         Option::make('tblack', 'Black'),
                     ])
                 ),
+            Radios::make()
+                ->name('content_width')
+                ->inline()
+                ->border()
+                ->default('medium')
+                ->options(
+                    Options::make([
+                        Option::make('wide', 'Wide'),
+                        Option::make('medium', 'Medium'),
+                        Option::make('thin', 'Thin'),
+                    ])
+                ),
             BlockEditor::make()
                 ->name('panel_content')
                 ->label('Panel Content')
@@ -60,6 +72,7 @@ class Panel extends TwillBlockComponent
                     'app-heading',
                     'app-image',
                     'app-paragraph',
+                    'app-button',
                     'app-separator',
                 ]),
         ]);

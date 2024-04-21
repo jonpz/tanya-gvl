@@ -36,9 +36,35 @@ class HomeController extends BaseModuleController
     {
         $form = parent::getForm($model);
 
-        $form->add(BlockEditor::make()->withoutSeparator()->blocks([
-            'app-panel',
-        ]));
+        $form->addFieldset(Fieldset::make()
+            ->title('Page Settings')
+            ->id('page_settings')
+            ->fields([
+                Radios::make()
+                    ->name('page_theme')
+                    ->inline()
+                    ->border()
+                    ->default('dark')
+                    ->options(
+                        Options::make([
+                            Option::make('light', 'Light Mode'),
+                            Option::make('dark', 'Dark Mode'),
+                        ])
+                    ),
+            ]));
+
+        $form->addFieldset(
+            Fieldset::make()
+                ->title('Content')
+                ->id('content')
+                ->fields([
+                    BlockEditor::make()
+                        ->withoutSeparator()
+                        ->blocks([
+                            'app-panel',
+                        ]),
+                ])
+        );
 
         return $form;
     }
@@ -64,37 +90,6 @@ class HomeController extends BaseModuleController
                         ->translatable()
                         ->type('textarea')
                         ->maxLength(200),
-                ])
-        );
-
-        $form->addFieldset(
-            Fieldset::make()
-                ->title('Page Settings')
-                ->id('page_settings')
-                ->fields([
-                    Radios::make()
-                        ->name('page_theme')
-                        ->inline()
-                        ->border()
-                        ->default('dark')
-                        ->options(
-                            Options::make([
-                                Option::make('light', 'Light Mode'),
-                                Option::make('dark', 'Dark Mode'),
-                            ])
-                        ),
-                    Radios::make()
-                        ->name('content_width')
-                        ->inline()
-                        ->border()
-                        ->default('medium')
-                        ->options(
-                            Options::make([
-                                Option::make('wide', 'Wide'),
-                                Option::make('medium', 'Medium'),
-                                Option::make('thin', 'Thin'),
-                            ])
-                        ),
                 ])
         );
 

@@ -3,7 +3,33 @@ export default {
     content: [
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
-    ], theme: {
+    ],
+    safelist: [
+        'w-1/2',
+        'w-2/3',
+        'w-4/5',
+        'text-left',
+        'text-center',
+        'text-right',
+        'bg-tbeige',
+        'bg-tpurple',
+        'bg-zinc-300',
+        'bg-red-700',
+        'bg-amber-700',
+        'bg-lime-700',
+        'bg-indigo-800',
+        'text-tbeige',
+        'text-tblack',
+        'text-tpurple',
+        'border-tbeige',
+        'border-tblack',
+        'border-tpurple',
+        'border-tgray',
+        'rounded-md',
+        'rounded-xl',
+        'rounded-full',
+    ],
+    theme: {
         extend: {
             colors: {
                 twhite: '#eeebea',

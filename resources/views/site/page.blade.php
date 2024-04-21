@@ -26,8 +26,6 @@
     <!-- Content Section -->
     <div class="relative z-10 flex-grow mt-24 mb-12">
         {!! $item->renderBlocks() !!}
-
-        <div class="hidden w-1/2 w-2/3 w-4/5 text-right bg-tbeige bg-tpurple text-tbeige text-tpurple"></div>
     </div>
 
     <!-- Footer -->

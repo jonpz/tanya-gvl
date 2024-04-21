@@ -28,9 +28,9 @@
 ])>
     <div @class([
         'mx-auto',
-        'max-w-2xl' => $inEditor || $renderData->model?->content_width === 'thin',
-        'max-w-4xl' => $renderData->model?->content_width === 'medium',
-        'max-w-6xl' => $renderData->model?->content_width === 'wide',
+        'max-w-2xl' => $block->input('content_width') === 'thin',
+        'max-w-4xl' => $block->input('content_width') === 'medium',
+        'max-w-6xl' => $block->input('content_width') === 'wide',
     ])>
         {!! $renderData->renderChildren('panel_content') !!}
     </div>

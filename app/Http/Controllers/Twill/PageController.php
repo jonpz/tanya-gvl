@@ -45,18 +45,6 @@ class PageController extends BaseModuleController
                                 Option::make('dark', 'Dark Mode'),
                             ])
                         ),
-                    Radios::make()
-                        ->name('content_width')
-                        ->inline()
-                        ->border()
-                        ->default('medium')
-                        ->options(
-                            Options::make([
-                                Option::make('wide', 'Wide'),
-                                Option::make('medium', 'Medium'),
-                                Option::make('thin', 'Thin'),
-                            ])
-                        ),
                 ])
         );
         $form->addFieldset(

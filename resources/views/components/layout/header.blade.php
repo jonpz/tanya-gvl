@@ -1,4 +1,4 @@
-<header x-data="{ open: false, headshrink: false }" @scroll.window="headshrink = (window.pageYOffset > 60)">
+<header x-data="{ open: false, headshrink: false }" x-init="headshrink = (window.pageYOffset > 60)" @scroll.window="headshrink = (window.pageYOffset > 60)">
     <div class="fixed inset-x-0 z-30 transition-all duration-200 border border-t-0 border-l-0 border-r-0 border-box border-tpurple bg-tblack text-twhite"
         :class="{ 'h-16 border-b-1': headshrink, 'h-24 border-b-2': !headshrink }">
         <div class="container flex items-center justify-between h-full mx-auto">
