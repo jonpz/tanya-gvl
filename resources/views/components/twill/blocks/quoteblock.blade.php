@@ -1,5 +1,6 @@
 <div @class([
-    'mx-4 flex',
+    'flex',
+    'mx-4' => $parent->type === 'app-panel',
     'mt-2 md:mt-4' => $input('margin_top') === 'thin',
     'mt-4 md:mt-8' => $input('margin_top') === 'medium',
     'mt-8 md:mt-16' => $input('margin_top') === 'wide',
