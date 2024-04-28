@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Twill\Blocks;
 
+use A17\Twill\Models\Block;
 use A17\Twill\Services\Forms\Fields\Radios;
 use A17\Twill\Services\Forms\Fields\Wysiwyg;
 use A17\Twill\Services\Forms\Form;
@@ -22,6 +23,14 @@ class Paragraph extends TwillBlockComponent
         return [
             'text' => 'required',
         ];
+    }
+
+    public function data(): array
+    {
+        $data = parent::data();
+        $data['parent'] = Block::find($data['block']->parent_id);
+
+        return $data;
     }
 
     public function render(): View
@@ -66,6 +75,35 @@ class Paragraph extends TwillBlockComponent
                         Option::make('left', 'Left'),
                         Option::make('center', 'Center'),
                         Option::make('right', 'Right'),
+                    ])
+                ),
+            Radios::make()
+                ->name('size')
+                ->inline()
+                ->border()
+                ->default('base')
+                ->options(
+                    Options::make([
+                        Option::make('small', 'Small'),
+                        Option::make('base', 'Base'),
+                        Option::make('large', 'Large'),
+                        Option::make('extra-large', 'Extra Large'),
+                    ])
+                ),
+            Radios::make()
+                ->name('color')
+                ->inline()
+                ->border()
+                ->default('inherit')
+                ->options(
+                    Options::make([
+                        Option::make('inherit', 'Inherit'),
+                        Option::make('twhite', 'White'),
+                        Option::make('zinc-300', 'Light Gray'),
+                        Option::make('tbeige', 'Beige'),
+                        Option::make('tpurple', 'Purple'),
+                        Option::make('tgray', 'Gray'),
+                        Option::make('tblack', 'Black'),
                     ])
                 ),
             Radios::make()

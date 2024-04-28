@@ -2,7 +2,7 @@
     function modal() {
         return {
             open: false,
-            enabled: @json($block->input('enlargable')),
+            enabled: @json($input('enlargable')),
             openModal() {
                 if (this.enabled) {
                     this.open = true;
@@ -18,25 +18,25 @@
 </script>
 <div x-data="modal()" @class([
     'flex',
-    'mt-2 md:mt-4' => $block->input('margin_top') === 'thin',
-    'mt-4 md:mt-8' => $block->input('margin_top') === 'medium',
-    'mt-8 md:mt-16' => $block->input('margin_top') === 'wide',
-    'mb-2 md:mb-4' => $block->input('margin_bottom') === 'thin',
-    'mb-4 md:mb-8' => $block->input('margin_bottom') === 'medium',
-    'mb-8 md:mb-16' => $block->input('margin_bottom') === 'wide',
-    'justify-start' => $block->input('alignment') === 'left',
-    'justify-center' => $block->input('alignment') === 'center',
-    'justify-end' => $block->input('alignment') === 'right',
+    'mt-2 md:mt-4' => $input('margin_top') === 'thin',
+    'mt-4 md:mt-8' => $input('margin_top') === 'medium',
+    'mt-8 md:mt-16' => $input('margin_top') === 'wide',
+    'mb-2 md:mb-4' => $input('margin_bottom') === 'thin',
+    'mb-4 md:mb-8' => $input('margin_bottom') === 'medium',
+    'mb-8 md:mb-16' => $input('margin_bottom') === 'wide',
+    'justify-start' => $input('alignment') === 'left',
+    'justify-center' => $input('alignment') === 'center',
+    'justify-end' => $input('alignment') === 'right',
 ])>
     <div @class([
         'relative inline',
-        'cursor-pointer' => $block->input('enlargable'),
-        'h-' . $block->input('restrict_height') => $block->input('restrict_height'),
-        'w-' . $block->input('restrict_width') => $block->input('restrict_width'),
+        'cursor-pointer' => $input('enlargable'),
+        'h-' . $input('restrict_height') => $input('restrict_height'),
+        'w-' . $input('restrict_width') => $input('restrict_width'),
     ]) @click="openModal()">
         <img src="{{ $block->imageAsArray('free_image', 'display')['src'] }}"
             alt="{{ $block->imageAsArray('free_image', 'display')['alt'] }}" @class([
-                'h-full w-auto' => $block->input('restrict_height'),
+                'h-full w-auto' => $input('restrict_height'),
             ])>
 
         <template x-teleport="body">

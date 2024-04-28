@@ -74,6 +74,7 @@ class Panel extends TwillBlockComponent
                     'app-freeimage',
                     'app-paragraph',
                     'app-button',
+                    'app-quoteblock',
                     'app-separator',
                 ]),
         ]);
