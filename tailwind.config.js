@@ -105,6 +105,8 @@ export default {
         'w-40',
         'w-32',
         'rounded-3xl',
+        'font-nightingale',
+        'font-poppins',
     ],
     theme: {
         extend: {

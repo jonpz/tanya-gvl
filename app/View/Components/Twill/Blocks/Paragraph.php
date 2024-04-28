@@ -107,6 +107,18 @@ class Paragraph extends TwillBlockComponent
                     ])
                 ),
             Radios::make()
+                ->name('font')
+                ->inline()
+                ->border()
+                ->default('inherit')
+                ->options(
+                    Options::make([
+                        Option::make('inherit', 'Inherit'),
+                        Option::make('nightingale', 'Nightingale (serif)'),
+                        Option::make('poppins', 'Poppins (sans)'),
+                    ])
+                ),
+            Radios::make()
                 ->name('margin_bottom')
                 ->inline()
                 ->border()

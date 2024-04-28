@@ -11,6 +11,7 @@
     'text-lg md:text-xl' => $input('size') === 'large',
     'text-xl md:text-2xl' => $input('size') === 'extra-large',
     'text-' . $input('color') => $input('color') !== 'inherit',
+    'font-' . $input('font') => $input('font') !== 'inherit',
     'pb-16' => $inEditor && $parent->type === 'app-panel',
 ])>
     {!! $block->translatedInput('text') !!}
