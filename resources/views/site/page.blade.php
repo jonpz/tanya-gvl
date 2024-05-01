@@ -31,7 +31,7 @@
 
     <!-- Footer -->
     <footer
-        class="box-border absolute inset-x-0 bottom-0 z-30 py-3 border border-b-0 border-l-0 border-r-0 bg-tblack text-twhite border-t-1 border-tpurple">
+        class="box-border absolute inset-x-0 bottom-0 py-3 border border-b-0 border-l-0 border-r-0 bg-tblack text-twhite border-t-1 border-tpurple">
         <div class="container mx-auto text-center">
             <span class="text-sm">&copy; {!! date('Y') !!} {{ config('app.name') }}. All rights
                 reserved.</span>

@@ -1,6 +1,6 @@
 <div @class([
     'flex',
-    'mx-4' => $parent->type === 'app-panel',
+    'mx-4' => $parent?->type === 'app-panel',
     'mt-2 md:mt-4' => $input('margin_top') === 'thin',
     'mt-4 md:mt-8' => $input('margin_top') === 'medium',
     'mt-8 md:mt-16' => $input('margin_top') === 'wide',
@@ -12,7 +12,7 @@
     'justify-end' => $input('alignment') === 'right',
 ])>
     <div @class([
-        'relative w-' . $input('width'),
+        'relative md:w-' . $input('width'),
         'rounded-3xl' => $input('rounded'),
         'p-2 md:p-4' => $input('padding') === 'thin',
         'p-4 md:p-8' => $input('padding') === 'medium',
