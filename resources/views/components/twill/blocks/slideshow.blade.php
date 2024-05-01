@@ -38,9 +38,10 @@
     'mb-8 md:mb-16' => $input('margin_bottom') === 'wide',
 ])>
     <div @class([
-        'relative aspect-video bg-tblack max-w-full h-64 md:h-' . $input('size'),
+        'relative aspect-video bg-tblack max-w-full h-56 md:h-' . $input('size'),
     ])>
-        <div class="absolute inset-y-0 left-0 z-20 flex w-16 cursor-pointer align-center text-twhite" @click="prev()">
+        <div class="absolute inset-y-0 left-0 z-20 flex w-12 cursor-pointer md:w-16 align-center text-twhite"
+            @click="prev()">
             <x-heroicon-o-chevron-left />
         </div>
         @foreach ($block->imagesAsArraysWithCrops('free_image') as $id => $imgArr)
@@ -48,7 +49,7 @@
                 x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
                 x-transition:leave="transition duration-400" x-transition:leave-start="opacity-100"
                 x-transition:leave-end="opacity-0" @class([
-                    'absolute flex w-full justify-center align-center z-10 overflow-hidden h-64 md:h-' .
+                    'absolute flex w-full justify-center align-center z-10 overflow-hidden h-56 md:h-' .
                     $input('size'),
                     'cursor-pointer' => $input('enlargable'),
                 ]) @click="openModal()">
@@ -73,7 +74,8 @@
                 @endif
             </div>
         @endforeach
-        <div class="absolute inset-y-0 right-0 z-20 flex w-16 cursor-pointer align-center text-twhite" @click="next()">
+        <div class="absolute inset-y-0 right-0 z-20 flex w-12 cursor-pointer md:w-16 align-center text-twhite"
+            @click="next()">
             <x-heroicon-o-chevron-right />
         </div>
     </div>

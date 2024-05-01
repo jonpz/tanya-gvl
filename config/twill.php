@@ -42,4 +42,24 @@ return [
             ],
         ],
     ],
+    'preview' => [
+        'breakpoints' => [
+            [
+                'size' => 1280,
+                'name' => 'preview-desktop',
+            ],
+            [
+                'size' => 1024,
+                'name' => 'preview-tablet-h',
+            ],
+            [
+                'size' => 768,
+                'name' => 'preview-tablet-v',
+            ],
+            [
+                'size' => 450,
+                'name' => 'preview-mobile',
+            ],
+        ],
+    ],
 ];
