@@ -2,7 +2,7 @@
     function floatImage() {
         return {
             open: false,
-            enabled: @json($input('image_enlargable')),
+            enabled: @json($input('enlargable') ?: false),
             openModal() {
                 if (this.enabled) {
                     this.open = true;
@@ -37,7 +37,7 @@
             'relative inline mb-3 h-' . $input('image_size'),
             'float-left mr-4' => $input('float_direction') === 'left',
             'float-right ml-4' => $input('float_direction') === 'right',
-            'cursor-pointer' => $input('image_enlargable'),
+            'cursor-pointer' => $input('enlargable'),
         ]) @click="openModal()">
             <img src="{{ $block->imageAsArray('free_image', 'display')['src'] }}"
                 alt="{{ $block->imageAsArray('free_image', 'display')['alt'] }}" class="w-auto h-full">

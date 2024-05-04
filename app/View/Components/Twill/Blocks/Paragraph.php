@@ -134,7 +134,7 @@ class Paragraph extends TwillBlockComponent
                         Option::make('right', 'Right'),
                     ])
                 ),
-            Checkbox::make()->name('image_enlargable')
+            Checkbox::make()->name('enlargable')
                 ->label('Enable click to show full image')
                 ->default(true),
             Radios::make()

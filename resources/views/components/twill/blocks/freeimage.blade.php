@@ -2,7 +2,7 @@
     function freeImage() {
         return {
             open: false,
-            enabled: @json($input('enlargable')),
+            enabled: @json($input('enlargable') ?: false),
             openModal() {
                 if (this.enabled) {
                     this.open = true;

@@ -2,7 +2,7 @@
     function slideshow() {
         return {
             enlarged: false,
-            enlargable: @json($input('enlargable')),
+            enlargable: @json($input('enlargable') ?: false),
             slide_ids: @json(array_keys($block->imagesAsArraysWithCrops('free_image'))),
             active_slide: 0,
             openModal() {
