@@ -3,6 +3,8 @@
 namespace App\View\Components\Twill\Blocks;
 
 use A17\Twill\Models\Block;
+use A17\Twill\Services\Forms\Fields\Checkbox;
+use A17\Twill\Services\Forms\Fields\Medias;
 use A17\Twill\Services\Forms\Fields\Radios;
 use A17\Twill\Services\Forms\Fields\Wysiwyg;
 use A17\Twill\Services\Forms\Form;
@@ -58,25 +60,14 @@ class Paragraph extends TwillBlockComponent
                 ->toolbarOptions([
                     'bold',
                     'italic',
+                    'underline',
+                    'strike',
+                    'align',
                     ['list' => 'bullet'],
                     ['list' => 'ordered'],
-                    ['script' => 'super'],
-                    ['script' => 'sub'],
                     'link',
-                    'clean',
+                    'table',
                 ]),
-            Radios::make()
-                ->name('alignment')
-                ->inline()
-                ->border()
-                ->default('left')
-                ->options(
-                    Options::make([
-                        Option::make('left', 'Left'),
-                        Option::make('center', 'Center'),
-                        Option::make('right', 'Right'),
-                    ])
-                ),
             Radios::make()
                 ->name('size')
                 ->inline()
@@ -118,6 +109,34 @@ class Paragraph extends TwillBlockComponent
                         Option::make('poppins', 'Poppins (sans)'),
                     ])
                 ),
+            Medias::make()->name('free_image')->label('Floating image'),
+            Radios::make()
+                ->name('image_size')
+                ->inline()
+                ->border()
+                ->default('32')
+                ->options(
+                    Options::make([
+                        Option::make('32', 'Small'),
+                        Option::make('40', 'Medium'),
+                        Option::make('48', 'Large'),
+                        Option::make('64', 'Extra Large'),
+                    ])
+                ),
+            Radios::make()
+                ->name('float_direction')
+                ->inline()
+                ->border()
+                ->default('right')
+                ->options(
+                    Options::make([
+                        Option::make('left', 'Left'),
+                        Option::make('right', 'Right'),
+                    ])
+                ),
+            Checkbox::make()->name('image_enlargable')
+                ->label('Enable click to show full image')
+                ->default(true),
             Radios::make()
                 ->name('margin_bottom')
                 ->inline()

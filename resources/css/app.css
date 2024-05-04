@@ -11,15 +11,15 @@
     }
     h1 {
         @apply text-4xl md:text-6xl;
-        @apply font-semibold;
+        @apply font-bold;
     }
     h2 {
         @apply text-3xl md:text-5xl;
-        @apply font-semibold;
+        @apply font-bold;
     }
     h3 {
         @apply text-2xl md:text-4xl;
-        @apply font-semibold;
+        @apply font-bold;
     }
     h4 {
         @apply text-xl md:text-3xl;
@@ -47,6 +47,18 @@
     }
     .masthead-shrunk {
         border-bottom-right-radius: 1.5rem;
+    }
+    table {
+        @apply box-border w-full table-auto;
+    }
+    tr {
+        @apply even:bg-twhite/30 odd:bg-zinc-300/50;
+    }
+    th {
+        @apply text-center bg-zinc-400/50;
+    }
+    td, th {
+        @apply px-3 border border-zinc-400;
     }
 }
 
