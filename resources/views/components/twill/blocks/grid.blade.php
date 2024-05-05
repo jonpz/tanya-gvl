@@ -1,10 +1,15 @@
-<div class="flowroot">
+<div @class([
+    'flowroot',
+    'p-1 md:p-2' => $input('spacing') === 'thin',
+    'p-2 md:p-4' => $input('spacing') === 'medium',
+    'p-4 md:p-8' => $input('spacing') === 'wide',
+    'bg-' . $input('bg_color') => $input('bg_color') !== 'none',
+])>
     <div @class([
         'flex flex-wrap',
         'justify-center' => $input('align_panels') === 'center',
         'justify-start' => $input('align_panels') === 'left',
         'justify-end' => $input('align_panels') === 'right',
-        'bg-' . $input('bg_color') => $input('bg_color') !== 'none',
     ])>
         @foreach ($repeater('panels') as $panel)
             <div @class([
