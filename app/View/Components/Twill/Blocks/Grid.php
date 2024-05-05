@@ -25,33 +25,6 @@ class Grid extends TwillBlockComponent
         return 'fix-grid';
     }
 
-    public function data(): array
-    {
-        $data = parent::data();
-        $content = $data['block']->getAttribute('content');
-        switch ($data['block']->input('spacing')) {
-            case 'none':
-                $content['gap_diff'] = '0rem';
-                $content['gap_diff_md'] = '0rem';
-                break;
-            case 'thin':
-                $content['gap_diff'] = '0.5rem';
-                $content['gap_diff_md'] = '1rem';
-                break;
-            case 'medium':
-                $content['gap_diff'] = '1rem';
-                $content['gap_diff_md'] = '2rem';
-                break;
-            case 'wide':
-                $content['gap_diff'] = '2rem';
-                $content['gap_diff_md'] = '4rem';
-                break;
-        }
-        $data['block']->setAttribute('content', $content);
-
-        return $data;
-    }
-
     public function render(): View
     {
         return view('components.twill.blocks.grid');
@@ -99,6 +72,18 @@ class Grid extends TwillBlockComponent
                         Option::make('thin', 'Thin'),
                         Option::make('medium', 'Medium'),
                         Option::make('wide', 'Wide'),
+                    ])
+                ),
+            Radios::make()
+                ->name('align_panels')
+                ->inline()
+                ->border()
+                ->default('center')
+                ->options(
+                    Options::make([
+                        Option::make('left', 'Left'),
+                        Option::make('center', 'Center'),
+                        Option::make('right', 'Right'),
                     ])
                 ),
             Radios::make()
