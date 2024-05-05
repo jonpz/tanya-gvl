@@ -77,6 +77,7 @@ class Panel extends TwillBlockComponent
                     'app-quoteblock',
                     'app-separator',
                     'app-slideshow',
+                    'app-grid',
                 ]),
         ]);
     }

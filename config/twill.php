@@ -45,15 +45,15 @@ return [
     'preview' => [
         'breakpoints' => [
             [
-                'size' => 1280,
+                'size' => 1350,
                 'name' => 'preview-desktop',
             ],
             [
-                'size' => 1024,
+                'size' => 1100,
                 'name' => 'preview-tablet-h',
             ],
             [
-                'size' => 768,
+                'size' => 850,
                 'name' => 'preview-tablet-v',
             ],
             [

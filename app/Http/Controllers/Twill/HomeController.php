@@ -35,24 +35,24 @@ class HomeController extends BaseModuleController
     public function getForm(TwillModelContract $model): Form
     {
         $form = parent::getForm($model);
-
-        $form->addFieldset(Fieldset::make()
-            ->title('Page Settings')
-            ->id('page_settings')
-            ->fields([
-                Radios::make()
-                    ->name('page_theme')
-                    ->inline()
-                    ->border()
-                    ->default('dark')
-                    ->options(
-                        Options::make([
-                            Option::make('light', 'Light Mode'),
-                            Option::make('dark', 'Dark Mode'),
-                        ])
-                    ),
-            ]));
-
+        $form->addFieldset(
+            Fieldset::make()
+                ->title('Page Settings')
+                ->id('page_settings')
+                ->fields([
+                    Radios::make()
+                        ->name('page_theme')
+                        ->inline()
+                        ->border()
+                        ->default('dark')
+                        ->options(
+                            Options::make([
+                                Option::make('light', 'Light Mode'),
+                                Option::make('dark', 'Dark Mode'),
+                            ])
+                        ),
+                ])
+        );
         $form->addFieldset(
             Fieldset::make()
                 ->title('Content')
@@ -62,6 +62,7 @@ class HomeController extends BaseModuleController
                         ->withoutSeparator()
                         ->blocks([
                             'app-panel',
+                            'app-grid',
                         ]),
                 ])
         );
@@ -72,7 +73,6 @@ class HomeController extends BaseModuleController
     public function getSideFieldsets(TwillModelContract $model): Form
     {
         $form = parent::getSideFieldsets($model);
-
         $form->addFieldset(
             Fieldset::make()
                 ->title('SEO')

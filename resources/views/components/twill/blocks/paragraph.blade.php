@@ -47,14 +47,14 @@
                 <div x-show="open" x-transition
                     class="fixed inset-0 z-40 flex justify-center p-2 align-middle cursor-pointer bg-tblack/90"
                     @click="closeModal()">
-                    <x-heroicon-s-x-mark class="absolute w-16 h-16 top-2 right-2 text-twhite" />
+                    <x-heroicon-o-x-mark class="absolute w-12 h-12 md:w-16 md:h-16 top-2 right-2 text-twhite" />
                     <img src="{{ $block->imageAsArray('free_image', 'full')['src'] }}"
                         alt="{{ $block->imageAsArray('free_image', 'full')['alt'] }}" class="object-contain" />
                 </div>
             </template>
 
             @if ($block->imageAsArray('free_image', 'display')['caption'])
-                <div class="absolute inset-x-0 bottom-0 px-4 py-3 text-xs text-twhite bg-tblack/50 md:text-sm">
+                <div class="absolute inset-x-0 bottom-0 px-4 py-2 text-xs text-twhite bg-tblack/50 md:text-sm">
                     {{ $block->imageAsArray('free_image', 'display')['caption'] }}
                 </div>
             @endif

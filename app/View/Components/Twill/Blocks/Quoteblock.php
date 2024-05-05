@@ -194,6 +194,7 @@ class Quoteblock extends TwillBlockComponent
                     'app-quoteblock',
                     'app-separator',
                     'app-slideshow',
+                    'app-grid',
                 ]),
             Radios::make()
                 ->name('margin_bottom')

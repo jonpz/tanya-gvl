@@ -56,6 +56,7 @@ class PageController extends BaseModuleController
                         ->withoutSeparator()
                         ->blocks([
                             'app-panel',
+                            'app-grid',
                         ]),
                 ])
         );
