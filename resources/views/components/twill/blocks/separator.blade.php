@@ -8,6 +8,5 @@
 ])>
     <hr @class([
         'mx-auto border-' . $input('color') . ' w-' . $input('width'),
-        'h-12' => $inEditor,
     ]) />
 </div>

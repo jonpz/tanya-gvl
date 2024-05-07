@@ -6,7 +6,9 @@ export default {
     ],
     safelist: [
         'md:w-1/2',
+        'w-2/3',
         'md:w-2/3',
+        'w-4/5',
         'md:w-4/5',
         'text-left',
         'text-center',

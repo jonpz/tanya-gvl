@@ -42,10 +42,8 @@ class Quoteblock extends TwillBlockComponent
     public function getForm(): Form
     {
         return Form::make([
-            Radios::make()
+            Select::make()
                 ->name('margin_top')
-                ->inline()
-                ->border()
                 ->default('medium')
                 ->options(
                     Options::make([
@@ -55,10 +53,19 @@ class Quoteblock extends TwillBlockComponent
                         Option::make('wide', 'Wide'),
                     ])
                 ),
-            Radios::make()
+            Select::make()
+                ->name('margin_bottom')
+                ->default('medium')
+                ->options(
+                    Options::make([
+                        Option::make('none', 'None'),
+                        Option::make('thin', 'Thin'),
+                        Option::make('medium', 'Medium'),
+                        Option::make('wide', 'Wide'),
+                    ])
+                ),
+            Select::make()
                 ->name('width')
-                ->inline()
-                ->border()
                 ->default('full')
                 ->options(
                     Options::make([
@@ -80,10 +87,8 @@ class Quoteblock extends TwillBlockComponent
                         Option::make('right', 'Right'),
                     ])
                 ),
-            Radios::make()
+            Select::make()
                 ->name('padding')
-                ->inline()
-                ->border()
                 ->default('medium')
                 ->options(
                     Options::make([
@@ -93,10 +98,8 @@ class Quoteblock extends TwillBlockComponent
                         Option::make('wide', 'Wide'),
                     ])
                 ),
-            Radios::make()
+            Select::make()
                 ->name('background_color')
-                ->inline()
-                ->border()
                 ->default('none')
                 ->options(
                     Options::make([
@@ -112,7 +115,6 @@ class Quoteblock extends TwillBlockComponent
             Select::make()
                 ->name('background_opacity')
                 ->default('100')
-                ->searchable()
                 ->options(
                     Options::make([
                         Option::make('100', '100%'),
@@ -134,10 +136,8 @@ class Quoteblock extends TwillBlockComponent
                 ->options(
                     Options::make($this->makeHeroiconOptions())
                 ),
-            Radios::make()
+            Select::make()
                 ->name('icon_color')
-                ->inline()
-                ->border()
                 ->default('tgray')
                 ->options(
                     Options::make([
@@ -149,10 +149,8 @@ class Quoteblock extends TwillBlockComponent
                         Option::make('tblack', 'Black'),
                     ])
                 ),
-            Radios::make()
+            Select::make()
                 ->name('icon_size')
-                ->inline()
-                ->border()
                 ->default('medium')
                 ->options(
                     Options::make([
@@ -162,10 +160,8 @@ class Quoteblock extends TwillBlockComponent
                         Option::make('extra-large', 'Extra Large'),
                     ])
                 ),
-            Radios::make()
+            Select::make()
                 ->name('icon_placement')
-                ->inline()
-                ->border()
                 ->default('top-left')
                 ->options(
                     Options::make([
@@ -196,19 +192,6 @@ class Quoteblock extends TwillBlockComponent
                     'app-slideshow',
                     'app-grid',
                 ]),
-            Radios::make()
-                ->name('margin_bottom')
-                ->inline()
-                ->border()
-                ->default('medium')
-                ->options(
-                    Options::make([
-                        Option::make('none', 'None'),
-                        Option::make('thin', 'Thin'),
-                        Option::make('medium', 'Medium'),
-                        Option::make('wide', 'Wide'),
-                    ])
-                ),
         ]);
     }
 

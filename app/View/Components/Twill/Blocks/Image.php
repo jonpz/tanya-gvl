@@ -3,7 +3,7 @@
 namespace App\View\Components\Twill\Blocks;
 
 use A17\Twill\Services\Forms\Fields\Medias;
-use A17\Twill\Services\Forms\Fields\Radios;
+use A17\Twill\Services\Forms\Fields\Select;
 use A17\Twill\Services\Forms\Form;
 use A17\Twill\Services\Forms\Option;
 use A17\Twill\Services\Forms\Options;
@@ -30,10 +30,19 @@ class Image extends TwillBlockComponent
     public function getForm(): Form
     {
         return Form::make([
-            Radios::make()
+            Select::make()
                 ->name('margin_top')
-                ->inline()
-                ->border()
+                ->default('medium')
+                ->options(
+                    Options::make([
+                        Option::make('none', 'None'),
+                        Option::make('thin', 'Thin'),
+                        Option::make('medium', 'Medium'),
+                        Option::make('wide', 'Wide'),
+                    ])
+                ),
+            Select::make()
+                ->name('margin_bottom')
                 ->default('medium')
                 ->options(
                     Options::make([
@@ -44,19 +53,6 @@ class Image extends TwillBlockComponent
                     ])
                 ),
             Medias::make()->name('image'),
-            Radios::make()
-                ->name('margin_bottom')
-                ->inline()
-                ->border()
-                ->default('medium')
-                ->options(
-                    Options::make([
-                        Option::make('none', 'None'),
-                        Option::make('thin', 'Thin'),
-                        Option::make('medium', 'Medium'),
-                        Option::make('wide', 'Wide'),
-                    ])
-                ),
         ]);
     }
 }

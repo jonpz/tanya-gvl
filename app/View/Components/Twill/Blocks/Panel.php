@@ -4,6 +4,7 @@ namespace App\View\Components\Twill\Blocks;
 
 use A17\Twill\Services\Forms\Fields\BlockEditor;
 use A17\Twill\Services\Forms\Fields\Radios;
+use A17\Twill\Services\Forms\Fields\Select;
 use A17\Twill\Services\Forms\Form;
 use A17\Twill\Services\Forms\Option;
 use A17\Twill\Services\Forms\Options;
@@ -25,10 +26,8 @@ class Panel extends TwillBlockComponent
     public function getForm(): Form
     {
         return Form::make([
-            Radios::make()
+            Select::make()
                 ->name('padding')
-                ->inline()
-                ->border()
                 ->default('medium')
                 ->options(
                     Options::make([
@@ -38,10 +37,8 @@ class Panel extends TwillBlockComponent
                         Option::make('wide', 'Wide'),
                     ])
                 ),
-            Radios::make()
+            Select::make()
                 ->name('background_color')
-                ->inline()
-                ->border()
                 ->default('none')
                 ->options(
                     Options::make([

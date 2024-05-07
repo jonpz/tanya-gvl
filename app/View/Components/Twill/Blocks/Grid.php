@@ -6,6 +6,7 @@ use A17\Twill\Services\Forms\Fields\BlockEditor;
 use A17\Twill\Services\Forms\Fields\Checkbox;
 use A17\Twill\Services\Forms\Fields\Input;
 use A17\Twill\Services\Forms\Fields\Radios;
+use A17\Twill\Services\Forms\Fields\Select;
 use A17\Twill\Services\Forms\Form;
 use A17\Twill\Services\Forms\InlineRepeater;
 use A17\Twill\Services\Forms\Option;
@@ -61,10 +62,8 @@ class Grid extends TwillBlockComponent
                 ->min(1)
                 ->max(2)
                 ->default(1),
-            Radios::make()
+            Select::make()
                 ->name('spacing')
-                ->inline()
-                ->border()
                 ->default('medium')
                 ->options(
                     Options::make([
@@ -86,11 +85,9 @@ class Grid extends TwillBlockComponent
                         Option::make('right', 'Right'),
                     ])
                 ),
-            Radios::make()
+            Select::make()
                 ->name('bg_color')
                 ->label('Container Background Color')
-                ->inline()
-                ->border()
                 ->default('none')
                 ->options(
                     Options::make([
@@ -102,10 +99,8 @@ class Grid extends TwillBlockComponent
                         Option::make('tblack', 'Black'),
                     ])
                 ),
-            Radios::make()
+            Select::make()
                 ->name('panel_padding')
-                ->inline()
-                ->border()
                 ->default('medium')
                 ->options(
                     Options::make([
@@ -115,11 +110,9 @@ class Grid extends TwillBlockComponent
                         Option::make('wide', 'Wide'),
                     ])
                 ),
-            Radios::make()
+            Select::make()
                 ->name('panel_bg_color')
                 ->label('Panel Background Color')
-                ->inline()
-                ->border()
                 ->default('none')
                 ->options(
                     Options::make([
@@ -131,10 +124,8 @@ class Grid extends TwillBlockComponent
                         Option::make('tblack', 'Black'),
                     ])
                 ),
-            Radios::make()
+            Select::make()
                 ->name('panel_rounded')
-                ->inline()
-                ->border()
                 ->default('none')
                 ->options(
                     Options::make([

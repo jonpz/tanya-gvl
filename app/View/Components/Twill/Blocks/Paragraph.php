@@ -6,6 +6,7 @@ use A17\Twill\Models\Block;
 use A17\Twill\Services\Forms\Fields\Checkbox;
 use A17\Twill\Services\Forms\Fields\Medias;
 use A17\Twill\Services\Forms\Fields\Radios;
+use A17\Twill\Services\Forms\Fields\Select;
 use A17\Twill\Services\Forms\Fields\Wysiwyg;
 use A17\Twill\Services\Forms\Form;
 use A17\Twill\Services\Forms\Option;
@@ -43,10 +44,8 @@ class Paragraph extends TwillBlockComponent
     public function getForm(): Form
     {
         return Form::make([
-            Radios::make()
+            Select::make()
                 ->name('margin_top')
-                ->inline()
-                ->border()
                 ->default('medium')
                 ->options(
                     Options::make([
@@ -56,22 +55,20 @@ class Paragraph extends TwillBlockComponent
                         Option::make('wide', 'Wide'),
                     ])
                 ),
-            Wysiwyg::make()->name('text')->translatable()
-                ->toolbarOptions([
-                    'bold',
-                    'italic',
-                    'underline',
-                    'strike',
-                    'align',
-                    ['list' => 'bullet'],
-                    ['list' => 'ordered'],
-                    'link',
-                    'table',
-                ]),
-            Radios::make()
+            Select::make()
+                ->name('margin_bottom')
+                ->default('medium')
+                ->options(
+                    Options::make([
+                        Option::make('none', 'None'),
+                        Option::make('thin', 'Thin'),
+                        Option::make('medium', 'Medium'),
+                        Option::make('wide', 'Wide'),
+                    ])
+                ),
+            Select::make()
                 ->name('size')
-                ->inline()
-                ->border()
+                ->label('Text Size')
                 ->default('base')
                 ->options(
                     Options::make([
@@ -81,10 +78,8 @@ class Paragraph extends TwillBlockComponent
                         Option::make('extra-large', 'Extra Large'),
                     ])
                 ),
-            Radios::make()
+            Select::make()
                 ->name('color')
-                ->inline()
-                ->border()
                 ->default('inherit')
                 ->options(
                     Options::make([
@@ -105,15 +100,13 @@ class Paragraph extends TwillBlockComponent
                 ->options(
                     Options::make([
                         Option::make('inherit', 'Inherit'),
-                        Option::make('nightingale', 'Nightingale (serif)'),
-                        Option::make('poppins', 'Poppins (sans)'),
+                        Option::make('nightingale', 'Nightingale'),
+                        Option::make('poppins', 'Poppins'),
                     ])
                 ),
             Medias::make()->name('free_image')->label('Floating image'),
-            Radios::make()
+            Select::make()
                 ->name('image_size')
-                ->inline()
-                ->border()
                 ->default('32')
                 ->options(
                     Options::make([
@@ -123,10 +116,8 @@ class Paragraph extends TwillBlockComponent
                         Option::make('64', 'Extra Large'),
                     ])
                 ),
-            Radios::make()
+            Select::make()
                 ->name('float_direction')
-                ->inline()
-                ->border()
                 ->default('right')
                 ->options(
                     Options::make([
@@ -137,19 +128,18 @@ class Paragraph extends TwillBlockComponent
             Checkbox::make()->name('enlargable')
                 ->label('Enable click to show full image')
                 ->default(true),
-            Radios::make()
-                ->name('margin_bottom')
-                ->inline()
-                ->border()
-                ->default('medium')
-                ->options(
-                    Options::make([
-                        Option::make('none', 'None'),
-                        Option::make('thin', 'Thin'),
-                        Option::make('medium', 'Medium'),
-                        Option::make('wide', 'Wide'),
-                    ])
-                ),
+            Wysiwyg::make()->name('text')->translatable()
+                ->toolbarOptions([
+                    'bold',
+                    'italic',
+                    'underline',
+                    'strike',
+                    'align',
+                    ['list' => 'bullet'],
+                    ['list' => 'ordered'],
+                    'link',
+                    'table',
+                ]),
         ]);
     }
 }

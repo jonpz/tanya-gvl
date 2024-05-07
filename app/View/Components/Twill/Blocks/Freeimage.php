@@ -6,6 +6,7 @@ use A17\Twill\Services\Forms\Fields\Checkbox;
 use A17\Twill\Services\Forms\Fields\Input;
 use A17\Twill\Services\Forms\Fields\Medias;
 use A17\Twill\Services\Forms\Fields\Radios;
+use A17\Twill\Services\Forms\Fields\Select;
 use A17\Twill\Services\Forms\Form;
 use A17\Twill\Services\Forms\Option;
 use A17\Twill\Services\Forms\Options;
@@ -40,10 +41,8 @@ class Freeimage extends TwillBlockComponent
     public function getForm(): Form
     {
         return Form::make([
-            Radios::make()
+            Select::make()
                 ->name('margin_top')
-                ->inline()
-                ->border()
                 ->default('medium')
                 ->options(
                     Options::make([
@@ -53,9 +52,17 @@ class Freeimage extends TwillBlockComponent
                         Option::make('wide', 'Wide'),
                     ])
                 ),
-            Medias::make()->name('free_image'),
-            Input::make()->name('restrict_height'),
-            Input::make()->name('restrict_width'),
+            Select::make()
+                ->name('margin_bottom')
+                ->default('medium')
+                ->options(
+                    Options::make([
+                        Option::make('none', 'None'),
+                        Option::make('thin', 'Thin'),
+                        Option::make('medium', 'Medium'),
+                        Option::make('wide', 'Wide'),
+                    ])
+                ),
             Radios::make()
                 ->name('alignment')
                 ->inline()
@@ -71,19 +78,13 @@ class Freeimage extends TwillBlockComponent
             Checkbox::make()->name('enlargable')
                 ->label('Enable click to show full')
                 ->default(true),
-            Radios::make()
-                ->name('margin_bottom')
-                ->inline()
-                ->border()
-                ->default('medium')
-                ->options(
-                    Options::make([
-                        Option::make('none', 'None'),
-                        Option::make('thin', 'Thin'),
-                        Option::make('medium', 'Medium'),
-                        Option::make('wide', 'Wide'),
-                    ])
-                ),
+            Input::make()
+                ->name('restrict_height')
+                ->note('Valid values: 96, 80, 72, 64, 60, 52, 48, 40, 32'),
+            Input::make()
+                ->name('restrict_width')
+                ->note('Valid values: 96, 80, 72, 64, 60, 52, 48, 40, 32'),
+            Medias::make()->name('free_image'),
         ]);
     }
 }
