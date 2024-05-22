@@ -2,9 +2,8 @@
     function floatImage() {
         return {
             open: false,
-            enabled: @json($input('enlargable') ?: false),
-            openModal() {
-                if (this.enabled) {
+            openModal(enabled) {
+                if (enabled) {
                     this.open = true;
                     document.body.style.overflow = 'hidden';
                 }
@@ -38,7 +37,7 @@
             'float-left mr-4' => $input('float_direction') === 'left',
             'float-right ml-4' => $input('float_direction') === 'right',
             'cursor-pointer' => $input('enlargable'),
-        ]) @click="openModal()">
+        ]) @click="openModal({{ $input('enlargable') }})">
             <img src="{{ $block->imageAsArray('free_image', 'display')['src'] }}"
                 alt="{{ $block->imageAsArray('free_image', 'display')['alt'] }}" class="w-auto h-full">
 

@@ -9,10 +9,10 @@ return [
                     [
                         'name' => 'desktop',
                         'ratio' => 16 / 9,
-                        'minValues' => [
-                            'width' => 1200,
-                            'height' => 675,
-                        ],
+                        // 'minValues' => [
+                        //     'width' => 1200,
+                        //     'height' => 675,
+                        // ],
                     ],
                 ],
                 'tablet' => [
