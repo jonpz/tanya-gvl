@@ -1,8 +1,17 @@
 <div @class([
     'flowroot',
-    'py-1 md:p-2' => $input('spacing') === 'thin',
-    'py-2 md:p-4' => $input('spacing') === 'medium',
-    'py-4 md:p-8' => $input('spacing') === 'wide',
+    'p-1 md:p-2' =>
+        $input('spacing') === 'thin' && $input('bg_color') !== 'none',
+    'p-2 md:p-4' =>
+        $input('spacing') === 'medium' && $input('bg_color') !== 'none',
+    'p-4 md:p-8' =>
+        $input('spacing') === 'wide' && $input('bg_color') !== 'none',
+    'py-1 md:p-2' =>
+        $input('spacing') === 'thin' && $input('bg_color') === 'none',
+    'py-2 md:p-4' =>
+        $input('spacing') === 'medium' && $input('bg_color') === 'none',
+    'py-4 md:p-8' =>
+        $input('spacing') === 'wide' && $input('bg_color') === 'none',
     'bg-' . $input('bg_color') => $input('bg_color') !== 'none',
 ])>
     <div @class([
@@ -29,9 +38,18 @@
                 'lg:hidden' => !($panel->renderData->block->input('lg_visible') ?: false),
                 'xl:inline-flex' => $panel->renderData->block->input('xl_visible') ?: false,
                 'xl:hidden' => !($panel->renderData->block->input('xl_visible') ?: false),
-                'py-1 md:p-2' => $input('spacing') === 'thin',
-                'py-2 md:p-4' => $input('spacing') === 'medium',
-                'py-4 md:p-8' => $input('spacing') === 'wide',
+                'p-1 md:p-2' =>
+                    $input('spacing') === 'thin' && $input('bg_color') !== 'none',
+                'p-2 md:p-4' =>
+                    $input('spacing') === 'medium' && $input('bg_color') !== 'none',
+                'p-4 md:p-8' =>
+                    $input('spacing') === 'wide' && $input('bg_color') !== 'none',
+                'py-1 md:p-2' =>
+                    $input('spacing') === 'thin' && $input('bg_color') === 'none',
+                'py-2 md:p-4' =>
+                    $input('spacing') === 'medium' && $input('bg_color') === 'none',
+                'py-4 md:p-8' =>
+                    $input('spacing') === 'wide' && $input('bg_color') === 'none',
             ])>
                 <div @class([
                     'w-full',
