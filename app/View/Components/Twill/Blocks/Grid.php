@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Twill\Blocks;
 
+use A17\Twill\Models\Block;
 use A17\Twill\Services\Forms\Fields\BlockEditor;
 use A17\Twill\Services\Forms\Fields\Checkbox;
 use A17\Twill\Services\Forms\Fields\Input;
@@ -24,6 +25,14 @@ class Grid extends TwillBlockComponent
     public static function getBlockIcon(): string
     {
         return 'fix-grid';
+    }
+
+    public function data(): array
+    {
+        $data = parent::data();
+        $data['parent'] = Block::find($data['block']->parent_id);
+
+        return $data;
     }
 
     public function render(): View

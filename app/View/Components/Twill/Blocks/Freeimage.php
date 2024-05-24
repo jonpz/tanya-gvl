@@ -33,8 +33,8 @@ class Freeimage extends TwillBlockComponent
     public function getValidationRules(): array
     {
         return [
-            'restrict_height' => 'in:96,80,72,64,60,52,48,40,32|nullable',
-            'restrict_width' => 'in:96,80,72,64,60,52,48,40,32|nullable',
+            'restrict_height' => 'in:128,96,80,72,64,60,52,48,40,32|nullable',
+            'restrict_width' => 'in:128,96,80,72,64,60,52,48,40,32|nullable',
         ];
     }
 
@@ -75,15 +75,15 @@ class Freeimage extends TwillBlockComponent
                         Option::make('right', 'Right'),
                     ])
                 ),
+            Input::make()
+                ->name('restrict_height')
+                ->note('Valid values: 128, 96, 80, 72, 64, 60, 52, 48, 40, 32'),
+            Input::make()
+                ->name('restrict_width')
+                ->note('Valid values: 128, 96, 80, 72, 64, 60, 52, 48, 40, 32'),
             Checkbox::make()->name('enlargable')
                 ->label('Enable click to show full')
                 ->default(true),
-            Input::make()
-                ->name('restrict_height')
-                ->note('Valid values: 96, 80, 72, 64, 60, 52, 48, 40, 32'),
-            Input::make()
-                ->name('restrict_width')
-                ->note('Valid values: 96, 80, 72, 64, 60, 52, 48, 40, 32'),
             Medias::make()->name('free_image'),
         ]);
     }
